@@ -1,0 +1,29 @@
+#mainBoard {
+	margin: 10px;
+}
+
+.upLabel {
+	color: blue;
+	display: inline-block;
+}
+
+#ucards {
+	overflow-wrap: break-word
+}
+
+.message {
+	margin: 5px !important;
+	vertical-align:top;
+}
+
+.scrollable {
+	max-height: 200px;
+	overflow-y: auto;
+}
+
+.record {
+	display: inline-block;
+	margin: 10px;
+	vertical-align: top;
+}
+

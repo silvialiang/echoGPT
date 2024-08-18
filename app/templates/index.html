@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>EchoLLM</title>
+  <link rel='stylesheet' type="text/css" href="semantic.min.css">
+  <link rel='stylesheet' type="text/css" href="myStyle.css">
+</head>
+<body>
+<div id='mainBoard'>
+    <div class="ui cards">
+      <div class="ui card">
+        <div class="content">
+          <div class="header">Search User</div>
+          <div class="description">
+            <div class="ui fluid search selection dropdown" id="userdropdown">
+              <input type="hidden" name="user">
+              <i class="dropdown icon"></i>
+              <div class="default text">Search User</div>
+              <div class="menu"></div>
+            </div>
+          </div>
+        </div>
+        <div class="extra content">
+          <div id="searchinfo">
+          </div>
+          <div class="ui button" id='getdata'>Get User Data</div>
+        </div>
+      </div>
+      <div class="ui card">
+        <div class="content">
+          <div class="header">Agent Creator</div>
+          <div class="description">
+            <div class="ui form">
+              <div class="field">
+                <label>Agent ID</label>
+                <input type="text">
+              </div>
+              <div class="field">
+                <label>Text</label>
+                <textarea rows=3></textarea>
+              </div>
+              <div class="field">
+                <label>Short Text</label>
+                <textarea rows=2></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="extra content">
+          <a class="ui fluid orange button" id='aggbutton'>
+            Creat
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="ui segment">
+      <div class="timeline"></div>
+    </div>
+    <div class="ui green segment">
+      <div class="ui grid">
+        <div class="column ten wide">
+          <div class="ui cards" id="ucards"></div>
+        </div>
+        <div class="column twenty wide" id="cardside">
+          <svg id="sidesvg"></svg>
+        </div>
+      </div>
+    </div>
+    <div class="ui blue segment">
+      <div class="ui grid">
+        <div class="five wide column">
+          <div class="ui divided list">
+            <div class="item">
+              <div class="content">
+                <a class="header">Rachel</a>
+                <div class="description">Last seen watching <a><b>Arrested Development</b></a> just now.</div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="content">
+                <a class="header">Lindsay</a>
+                <div class="description">Last seen watching <a><b>Bob's Burgers</b></a> 10 hours ago.</div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="content">
+                <a class="header">Matthew</a>
+                <div class="description">Last seen watching <a><b>The Godfather Part 2</b></a> yesterday.</div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="content">
+                <a class="header">Jenny Hess</a>
+                <div class="description">Last seen watching <a><b>Twin Peaks</b></a> 3 days ago.</div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="content">
+                <a class="header">Veronika Ossi</a>
+                <div class="description">Has not watched anything recently</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="five wide column">
+          <div class="ui divided list">
+            <div class="item">
+              <div class="content">
+                <a class="header">Rachel</a>
+                <div class="description">Last seen watching <a><b>Arrested Development</b></a> just now.</div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="content">
+                <a class="header">Lindsay</a>
+                <div class="description">Last seen watching <a><b>Bob's Burgers</b></a> 10 hours ago.</div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="content">
+                <a class="header">Matthew</a>
+                <div class="description">Last seen watching <a><b>The Godfather Part 2</b></a> yesterday.</div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="content">
+                <a class="header">Jenny Hess</a>
+                <div class="description">Last seen watching <a><b>Twin Peaks</b></a> 3 days ago.</div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="content">
+                <a class="header">Veronika Ossi</a>
+                <div class="description">Has not watched anything recently</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="">
+    <div class="ui cards">
+      <div class="ui card">
+        <div class="content">
+          <div class="header">Search Result</div>
+          <div class="description" id="balanceBoard">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ui cards">
+      
+      <div class="ui card">
+        <div class="content">
+          <div class="header">Database Status</div>
+          <div class="description" id="dbstats">
+          </div>
+        </div>
+        <div class="extra content">
+          <a class="ui fluid green button" id='rfdb'>
+            Refresh
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="ui cards">
+      <div class="ui card">
+        <div class="content">
+          <div class="header">Search Agent</div>
+          <div class="description">
+            <div class="ui action fluid input">
+              <input type="text" placeholder="Agent ID..." id="search_agent">
+              <button class="ui icon button" id="search">
+                <i class="search icon"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ui cards">
+      <div class="ui card">
+        <div class="content">
+          <div class="header">Agent List</div>
+          <div class="description" id="balanceBoard">
+          </div>
+          <div class="ui divided list">
+            <div class="item">
+              <div class="content">
+                <a class="header">Rachel</a>
+                <div class="description">Last seen watching <a><b>Arrested Development</b></a> just now.</div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="content">
+                <a class="header">Lindsay</a>
+                <div class="description">Last seen watching <a><b>Bob's Burgers</b></a> 10 hours ago.</div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="content">
+                <a class="header">Matthew</a>
+                <div class="description">Last seen watching <a><b>The Godfather Part 2</b></a> yesterday.</div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="content">
+                <a class="header">Jenny Hess</a>
+                <div class="description">Last seen watching <a><b>Twin Peaks</b></a> 3 days ago.</div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="content">
+                <a class="header">Veronika Ossi</a>
+                <div class="description">Has not watched anything recently</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    </div>
+    <div class="ui green segment" id="records">
+    </div>
+    <div class="ui yellow segment">
+      <div class="ui grid">
+        <div class="six wide column" id="feetable1"></div>
+        <div class="six wide column" id="feetable2"></div>
+        <div class="four column" id="feetable3"></div>
+      </div>
+    </div>
+  </div>
+  <script src="jquery.min.js"></script>
+  <script src="semantic.min.js"></script>
+  <script src="index.js"></script>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-cloud/1.2.5/d3.layout.cloud.min.js"></script>
+
+</body>
+</html>
